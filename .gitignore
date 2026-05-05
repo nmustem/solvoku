@@ -1,0 +1,14 @@
+# Gradle
+.gradle/
+**/.gradle/
+
+build/
+**/build/
+
+.kotlin
+**/.kotlin/
+
+# IntelliJ
+.idea/
+*.iml
+
