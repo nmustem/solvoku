@@ -20,4 +20,7 @@ dependencies {
 
     // SLF4F Logging
     implementation("ch.qos.logback:logback-classic:1.5.6")
+
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.kotest.junit5)
 }

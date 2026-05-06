@@ -1,4 +1,4 @@
-package com.solvoku
+package com.solvoku.solvokuservice
 
 import io.ktor.server.application.*
 import io.ktor.server.response.*

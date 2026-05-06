@@ -16,6 +16,9 @@ dependencies {
     implementation(libs.ktor.serialization.kotlinx.json)
 
     // Test framework
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.kotest.assertions.json)
+    testImplementation(libs.kotest.junit5)
     testImplementation(libs.ktor.server.test.host)
     testImplementation(kotlin("test"))
 }

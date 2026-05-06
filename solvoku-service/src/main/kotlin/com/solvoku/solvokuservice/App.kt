@@ -1,6 +1,6 @@
-package com.solvoku
+package com.solvoku.solvokuservice
 
-import com.solvoku.server.health
+import com.solvoku.solvokuservice.server.health
 import io.ktor.server.application.Application
 import io.ktor.server.netty.EngineMain
 import io.ktor.server.application.install
@@ -16,5 +16,3 @@ fun Application.module() {
         health()
     }
 }
-
-// TODO: afegir un health endpoint amb tests

@@ -1,4 +1,4 @@
-package com.solvoku.server
+package com.solvoku.solvokuservice.server
 
 import io.ktor.server.response.respond
 import io.ktor.server.routing.Route
