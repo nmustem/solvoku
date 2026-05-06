@@ -1,6 +1,6 @@
 plugins {
-    alias(ktorLibs.plugins.kotlin.jvm)
-    alias(ktorLibs.plugins.ktor)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.ktor)
 }
 
 application {
@@ -12,12 +12,12 @@ kotlin {
 }
 
 dependencies {
-    implementation(ktorLibs.ktor.serialization.kotlinx.json)
-    implementation(ktorLibs.ktor.server.config.yaml)
-    implementation(ktorLibs.ktor.server.content.negotiation)
-    implementation(ktorLibs.ktor.server.core)
-    implementation(ktorLibs.ktor.server.netty)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.server.config.yaml)
+    implementation(libs.ktor.server.content.negotiation)
+    implementation(libs.ktor.server.core)
+    implementation(libs.ktor.server.netty)
 
-    // Logging
+    // SLF4F Logging
     implementation("ch.qos.logback:logback-classic:1.5.6")
 }

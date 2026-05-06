@@ -1,5 +1,5 @@
 plugins {
-    alias(ktorLibs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.jvm)
 }
 
 kotlin {
@@ -10,13 +10,13 @@ dependencies {
     implementation(project(":solvoku-service"))
 
     // Ktor test client
-    implementation(ktorLibs.ktor.client.cio)
-    implementation(ktorLibs.ktor.client.content.negotiation)
-    implementation(ktorLibs.ktor.client.core)
-    implementation(ktorLibs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.client.cio)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.serialization.kotlinx.json)
 
     // Test framework
-    testImplementation(ktorLibs.ktor.server.test.host)
+    testImplementation(libs.ktor.server.test.host)
     testImplementation(kotlin("test"))
 }
 

@@ -9,7 +9,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/solvocu-component-tests" />
+            <option value="$PROJECT_DIR$/solvoku-service" />
+            <option value="$PROJECT_DIR$/solvoku-service-component-tests" />
           </set>
         </option>
       </GradleProjectSettings>
