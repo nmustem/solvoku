@@ -19,3 +19,4 @@ dependencyResolutionManagement {
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
+include("solvoku-service", "solvoku-component-tests")
