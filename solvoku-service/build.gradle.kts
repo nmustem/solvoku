@@ -1,17 +1,23 @@
-dependencies {
-    implementation(ktorLibs.server.config.yaml)
-    implementation(ktorLibs.server.core)
-    implementation(ktorLibs.server.netty)
-    implementation(libs.logback.classic)
-
-    testImplementation(kotlin("test"))
-    testImplementation(ktorLibs.server.testHost)
+plugins {
+    alias(ktorLibs.plugins.kotlin.jvm)
+    alias(ktorLibs.plugins.ktor)
 }
 
 application {
-    mainClass = "com.solvoku.solvokuservice.AppKt"
+    mainClass = "io.ktor.server.netty.EngineMain"
 }
 
-tasks.test {
-    useJUnitPlatform()
+kotlin {
+    jvmToolchain(21)
+}
+
+dependencies {
+    implementation(ktorLibs.ktor.serialization.kotlinx.json)
+    implementation(ktorLibs.ktor.server.config.yaml)
+    implementation(ktorLibs.ktor.server.content.negotiation)
+    implementation(ktorLibs.ktor.server.core)
+    implementation(ktorLibs.ktor.server.netty)
+
+    // Logging
+    implementation("ch.qos.logback:logback-classic:1.5.6")
 }
