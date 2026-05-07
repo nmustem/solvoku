@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ktor)
 }
 
@@ -23,4 +24,12 @@ dependencies {
 
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.kotest.junit5)
+    testImplementation(libs.mockk)
+}
+
+tasks.named<Test>("test") {
+    useJUnitPlatform()
+    testLogging {
+        events("PASSED", "SKIPPED", "FAILED")
+    }
 }

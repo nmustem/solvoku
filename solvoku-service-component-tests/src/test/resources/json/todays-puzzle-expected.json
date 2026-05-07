@@ -1,0 +1,202 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "date": "2026-05-07",
+  "title": "The Manor Mystery",
+  "gridSize": 4,
+  "zones": [
+    {
+      "id": "A",
+      "name": "Library",
+      "cells": [
+        {
+          "row": 0,
+          "col": 0
+        },
+        {
+          "row": 0,
+          "col": 1
+        },
+        {
+          "row": 1,
+          "col": 0
+        },
+        {
+          "row": 1,
+          "col": 1
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Kitchen",
+      "cells": [
+        {
+          "row": 0,
+          "col": 2
+        },
+        {
+          "row": 0,
+          "col": 3
+        },
+        {
+          "row": 1,
+          "col": 2
+        },
+        {
+          "row": 1,
+          "col": 3
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "Study",
+      "cells": [
+        {
+          "row": 2,
+          "col": 0
+        },
+        {
+          "row": 2,
+          "col": 1
+        },
+        {
+          "row": 3,
+          "col": 0
+        },
+        {
+          "row": 3,
+          "col": 1
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "name": "Garden",
+      "cells": [
+        {
+          "row": 2,
+          "col": 2
+        },
+        {
+          "row": 2,
+          "col": 3
+        },
+        {
+          "row": 3,
+          "col": 2
+        },
+        {
+          "row": 3,
+          "col": 3
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "cell": {
+        "row": 0,
+        "col": 0
+      },
+      "icon": "bookcase",
+      "label": "Bookcase"
+    },
+    {
+      "cell": {
+        "row": 0,
+        "col": 3
+      },
+      "icon": "knife",
+      "label": "Knife"
+    },
+    {
+      "cell": {
+        "row": 1,
+        "col": 2
+      },
+      "icon": "stove",
+      "label": "Stove"
+    },
+    {
+      "cell": {
+        "row": 2,
+        "col": 1
+      },
+      "icon": "candle",
+      "label": "Candle"
+    },
+    {
+      "cell": {
+        "row": 3,
+        "col": 0
+      },
+      "icon": "chair",
+      "label": "Chair"
+    },
+    {
+      "cell": {
+        "row": 3,
+        "col": 3
+      },
+      "icon": "rose",
+      "label": "Rose"
+    }
+  ],
+  "suspects": [
+    {
+      "id": "A",
+      "name": "Anna",
+      "icon": "suspect_woman_1"
+    },
+    {
+      "id": "B",
+      "name": "Boris",
+      "icon": "suspect_man_1"
+    },
+    {
+      "id": "C",
+      "name": "Clara",
+      "icon": "suspect_woman_2"
+    },
+    {
+      "id": "D",
+      "name": "Duncan",
+      "icon": "suspect_man_2"
+    }
+  ],
+  "victim": {
+    "name": "Lord Ashton",
+    "icon": "skull",
+    "cell": {
+      "row": 2,
+      "col": 3
+    }
+  },
+  "clues": [
+    {
+      "id": 1,
+      "text": "Anna was in the Kitchen."
+    },
+    {
+      "id": 2,
+      "text": "Boris was not in the Garden."
+    },
+    {
+      "id": 3,
+      "text": "Clara was beside the bookcase."
+    },
+    {
+      "id": 4,
+      "text": "Duncan was in the same zone as the victim."
+    },
+    {
+      "id": 5,
+      "text": "No suspect shared a row with Anna."
+    },
+    {
+      "id": 6,
+      "text": "Boris was in the Study."
+    }
+  ]
+}
