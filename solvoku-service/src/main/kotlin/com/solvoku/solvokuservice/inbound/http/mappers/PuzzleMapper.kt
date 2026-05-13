@@ -10,7 +10,7 @@ import com.solvoku.solvokuservice.inbound.http.model.VictimDto
 import com.solvoku.solvokuservice.inbound.http.model.ZoneDto
 
 
-fun Puzzle.toResponseDto() = PuzzleResponseDto(
+fun Puzzle.toResponseDto() = PuzzleResponseDto( // TODO: naming? ApiResponse/ApiModel?
     id = id.toString(),
     date = date.toString(),
     // theme = theme.name,

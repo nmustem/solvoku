@@ -17,6 +17,7 @@ dependencies {
     implementation(libs.ktor.server.config.yaml)
     implementation(libs.ktor.server.content.negotiation)
     implementation(libs.ktor.server.core)
+    implementation(libs.ktor.server.di)
     implementation(libs.ktor.server.netty)
 
     // SLF4F Logging
@@ -33,3 +34,7 @@ tasks.named<Test>("test") {
         events("PASSED", "SKIPPED", "FAILED")
     }
 }
+
+
+tasks.named("distZip") { enabled = false }
+tasks.named("distTar") { enabled = false }
