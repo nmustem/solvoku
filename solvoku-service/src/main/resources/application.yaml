@@ -3,4 +3,4 @@ ktor:
     port: 8080
   application:
     modules:
-      - com.solvoku.RoutingKt.configureRouting
+      - com.solvoku.solvokuservice.AppKt.module
