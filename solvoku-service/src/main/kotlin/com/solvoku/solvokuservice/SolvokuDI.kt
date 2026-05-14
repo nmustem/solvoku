@@ -9,13 +9,15 @@ import com.solvoku.solvokuservice.outbound.cache.NoOpPuzzleCache
 import com.solvoku.solvokuservice.outbound.persistence.InMemoryPuzzleRepository
 import io.ktor.server.application.Application
 import io.ktor.server.plugins.di.dependencies
+import java.time.Clock
 
 fun Application.installSolvokuDI() {
     dependencies {
         provide<PuzzleRepository> { InMemoryPuzzleRepository() }
         provide<PuzzleCachePort> { NoOpPuzzleCache() }
 
-        provide<GetTodaysPuzzleUseCase> { GetTodaysPuzzleUseCaseImpl(resolve(), resolve()) }
+        provide<Clock> { Clock.systemDefaultZone() }
+        provide<GetTodaysPuzzleUseCase> { GetTodaysPuzzleUseCaseImpl(resolve(), resolve(), resolve()) }
         provide<GetTodaysPuzzleHandler> { GetTodaysPuzzleHandler(resolve()) }
     }
 }

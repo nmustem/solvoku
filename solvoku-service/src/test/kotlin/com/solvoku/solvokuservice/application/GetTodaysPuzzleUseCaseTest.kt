@@ -10,13 +10,17 @@ import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Assertions.assertEquals
+import java.time.Clock
+import java.time.Instant
 import java.time.LocalDate
+import java.time.ZoneId
 
 class GetTodaysPuzzleUseCaseTest : FreeSpec({
 
     val cache: PuzzleCachePort = mockk()
     val repository: PuzzleRepository = mockk()
-    val systemUnderTest = GetTodaysPuzzleUseCaseImpl(cache, repository)
+    val clock = Clock.fixed(Instant.now(), ZoneId.of("UTC"))
+    val systemUnderTest = GetTodaysPuzzleUseCaseImpl(clock, cache, repository)
 
     val today = LocalDate.now()
     val fakePuzzle = buildFakePuzzle(today)
@@ -45,7 +49,6 @@ class GetTodaysPuzzleUseCaseTest : FreeSpec({
         val exception = shouldThrow<PuzzleNotFoundException> {
             systemUnderTest()
         }
-
-        exception.message shouldBe "No puzzle scheduled for today"
+        exception.message shouldBe "No puzzle scheduled for ${LocalDate.now(clock)}"
     }
 })

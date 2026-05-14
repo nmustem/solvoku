@@ -19,6 +19,7 @@ dependencies {
     implementation(libs.ktor.server.core)
     implementation(libs.ktor.server.di)
     implementation(libs.ktor.server.netty)
+    implementation(libs.ktor.server.status.pages)
 
     // SLF4F Logging
     implementation("ch.qos.logback:logback-classic:1.5.6")
