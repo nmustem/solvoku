@@ -4,3 +4,9 @@ ktor:
   application:
     modules:
       - com.solvoku.solvokuservice.AppKt.module
+
+database:
+  url: "jdbc:postgresql://localhost:5432/solvoku"
+  user: "solvoku"
+  password: "solvoku"
+  driver: "org.postgresql.Driver"

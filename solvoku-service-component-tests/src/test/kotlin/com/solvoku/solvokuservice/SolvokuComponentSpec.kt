@@ -1,16 +1,18 @@
 package com.solvoku.solvokuservice
 
 import io.kotest.core.spec.style.FreeSpec
+import io.kotest.provided.PostgresTestContainer
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
 import io.ktor.server.application.Application
+import io.ktor.server.config.MapApplicationConfig
 import io.ktor.server.testing.TestApplication
 
 data class HttpTestResponse(val statusCode: Int, val body: String)
 
 abstract class SolvokuComponentSpec(
-    private val dependencyOverrides: Application.() -> Unit = {},
+    private val dependencyOverrides: Application.() -> Unit = {}
 ) : FreeSpec() {
 
     private lateinit var testApp: TestApplication
@@ -19,15 +21,22 @@ abstract class SolvokuComponentSpec(
     init {
         beforeSpec {
             testApp = TestApplication {
+                environment {
+                    config = MapApplicationConfig(
+                        "database.url" to PostgresTestContainer.jdbcUrl,
+                        "database.user" to PostgresTestContainer.username,
+                        "database.password" to PostgresTestContainer.password,
+                        "database.driver" to "org.postgresql.Driver"
+                    )
+                }
                 application {
-                    dependencyOverrides() // overrides on top
-                    module() // full real module
+                    dependencyOverrides()
+                    module()
                 }
             }
             testApp.start()
             application = TestApplicationWrapper(testApp.createClient {})
         }
-
         afterSpec { testApp.stop() }
     }
 

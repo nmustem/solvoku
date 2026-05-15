@@ -1,5 +1,8 @@
 package com.solvoku.solvokuservice.domain.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class CellPosition(val row: Int, val col: Int) {
     init {
         require(row >= 0) { "Row must be non-negative" }

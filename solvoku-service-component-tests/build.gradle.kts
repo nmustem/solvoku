@@ -21,6 +21,8 @@ dependencies {
     testImplementation(libs.kotest.junit5)
     testImplementation(libs.ktor.serialization.kotlinx.json)
     testImplementation(libs.ktor.server.test.host)
+    testImplementation(libs.testcontainers.postgresql)
+    testImplementation("org.testcontainers:testcontainers:1.20.4") // core, needed alongside postgresql
     testImplementation(kotlin("test"))
 }
 

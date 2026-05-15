@@ -12,6 +12,8 @@ import java.time.ZoneOffset
 class GetTodaysPuzzleSpec : SolvokuComponentSpec() {
     init {
         "should return 200 with the puzzle scheduled for today" {
+            // TODO: fix test, ofc the DB is empty
+            // do we want to mock here the db and have integration tests for the db or just actual calls?
             val response = application.makeGetRequest("/v1/puzzles/today")
 
             val today = LocalDate.now().toString()
