@@ -2,7 +2,6 @@ package com.solvoku.solvokuservice.domain.port.outbound
 
 import com.solvoku.solvokuservice.domain.model.Puzzle
 import java.time.LocalDate
-import java.util.UUID
 
 interface PuzzleRepository {
     fun findByDate(date: LocalDate): Puzzle?

@@ -1,10 +1,14 @@
 package com.solvoku.solvokuservice.domain.model
 
+import kotlinx.serialization.Serializable
 import java.time.LocalDate
 import java.util.UUID
 
+@Serializable
 data class Puzzle(
+    @Serializable(with = UUIDSerializer::class)
     val id: UUID,
+    @Serializable(with = LocalDateSerializer::class)
     val date: LocalDate,
     // val theme: Theme,
     // val difficulty: Difficulty,

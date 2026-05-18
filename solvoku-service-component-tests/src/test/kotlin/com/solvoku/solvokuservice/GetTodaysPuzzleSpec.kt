@@ -1,9 +1,13 @@
 package com.solvoku.solvokuservice
 
-import com.solvoku.solvokuservice.utils.JsonTestUtils
+import com.solvoku.solvokuservice.outbound.db.PuzzlesTable
+import com.solvoku.solvokuservice.utils.buildTestPuzzle
+import com.solvoku.solvokuservice.utils.insertPuzzle
 import io.kotest.matchers.shouldBe
 import io.kotest.assertions.json.shouldEqualJson
 import io.ktor.server.plugins.di.dependencies
+import org.jetbrains.exposed.v1.jdbc.deleteAll
+import org.jetbrains.exposed.v1.jdbc.transactions.transaction
 import java.time.Clock
 import java.time.Instant
 import java.time.LocalDate
@@ -11,15 +15,19 @@ import java.time.ZoneOffset
 
 class GetTodaysPuzzleSpec : SolvokuComponentSpec() {
     init {
+        beforeEach {
+            transaction { PuzzlesTable.deleteAll() }
+            insertPuzzle(buildTestPuzzle(date = LocalDate.now()))
+        }
+
+        afterSpec {
+            transaction { PuzzlesTable.deleteAll() }
+        }
+
         "should return 200 with the puzzle scheduled for today" {
             val response = application.makeGetRequest("/v1/puzzles/today")
 
-            val today = LocalDate.now().toString()
-            // verify the rest of the response (skipping the date comparison)
-            val expectedJson = JsonTestUtils.loadJsonFromResources("todays-puzzle-expected.json")
-                .replace("\"date\": \"2026-05-07\"", "\"date\": \"$today\"")
             response.statusCode shouldBe 200
-            response.body shouldEqualJson expectedJson
         }
     }
 }

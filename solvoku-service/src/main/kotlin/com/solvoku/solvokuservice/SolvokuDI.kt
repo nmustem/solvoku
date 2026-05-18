@@ -6,14 +6,14 @@ import com.solvoku.solvokuservice.domain.port.outbound.PuzzleCachePort
 import com.solvoku.solvokuservice.domain.port.outbound.PuzzleRepository
 import com.solvoku.solvokuservice.inbound.http.handlers.GetTodaysPuzzleHandler
 import com.solvoku.solvokuservice.outbound.cache.NoOpPuzzleCache
-import com.solvoku.solvokuservice.outbound.persistence.InMemoryPuzzleRepository
+import com.solvoku.solvokuservice.outbound.db.PostgresPuzzleRepository
 import io.ktor.server.application.Application
 import io.ktor.server.plugins.di.dependencies
 import java.time.Clock
 
 fun Application.installSolvokuDI() {
     dependencies {
-        provide<PuzzleRepository> { InMemoryPuzzleRepository() }
+        provide<PuzzleRepository> { PostgresPuzzleRepository() }
         provide<PuzzleCachePort> { NoOpPuzzleCache() }
 
         provide<Clock> { Clock.systemDefaultZone() }
